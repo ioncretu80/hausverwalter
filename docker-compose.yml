@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  db-bdvk:
+    image: postgres:16.4
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
+      POSTGRES_DB: hausverwalter
+    ports:
+      - 5432:5432

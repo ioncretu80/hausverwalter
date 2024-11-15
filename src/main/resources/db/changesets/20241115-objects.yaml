@@ -1,0 +1,70 @@
+databaseChangeLog:
+
+  #  -------------------------------------------------------------------------------
+  #  -- Tabelle Intba Datei
+  #  -------------------------------------------------------------------------------
+
+  - changeSet:
+      id: "1"
+      comment: Creation of Tabelle Intba File
+      author: icr
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: OBJECTS
+      changes:
+        - createTable:
+            tableName: OBJECTS
+            comment: Entry for the Objects file
+            columns:
+              - column:
+                  name: id
+                  remarks: "Primary Key"
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: object_name
+                  remarks: "Object Name"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: Street
+                  remarks: "Street"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: haus_number
+                  remarks: "Haus Number"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: post_code
+                  remarks: "Post code"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: city
+                  remarks: "City"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+
+
+
+
+
+
+
+
+
+
+
+

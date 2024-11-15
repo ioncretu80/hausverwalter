@@ -1,0 +1,28 @@
+
+server:
+  port: 8080
+debug: false
+
+spring:
+  application:
+    name: hausverwalter
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hausverwalter
+    username: root
+    password: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+      hbm2ddl:
+        auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    enabled: true
+    change-log: classpath:db/master-changelog.xml
+
+

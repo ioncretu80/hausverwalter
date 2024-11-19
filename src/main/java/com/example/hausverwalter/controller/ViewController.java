@@ -3,6 +3,7 @@ package com.example.hausverwalter.controller;
 
 import com.example.hausverwalter.dto.DtoObject;
 import com.example.hausverwalter.service.ObjectVService;
+import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -63,6 +64,17 @@ import org.springframework.web.bind.annotation.PostMapping;
     objectService.addVObject(dtoObject);
     return "redirect:/objects";
   }
+
+
+  @GetMapping("/objects/deteils/{id}")
+  public String getVObjectDeteils(Model model, @PathVariable Long id) {
+    ArrayList<String> app_liste = new ArrayList<>();
+
+    model.addAttribute("dtoObject", objectService.getObjectById(id));
+    model.addAttribute("app_liste", app_liste);
+    return "object_detail";
+  }
+
 
   @GetMapping("/orders")
   public String order(Model model) {

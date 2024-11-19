@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 
 
 @Mapper
-public interface ObjectVervaltunsMapper {
+public interface ObjectVerwaltungsMapper {
 
   DtoObject entityObjectToDtoObject(EntityObject entityObject);
 

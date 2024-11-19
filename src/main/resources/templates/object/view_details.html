@@ -1,0 +1,27 @@
+<div class="container mt-5">
+
+  <h5>Object <span th:text="${dtoObject.getObjectName}"></span></h5>
+  <h6><span th:text="${dtoObject.getStreet}"></span> <span th:text="${dtoObject.getHausNumber}"></span></h6>
+
+ <div>
+   Lista de aparamente
+   <div th:replace="~{/apartaments/list}"></div>
+
+ </div>
+  Lista Contoare principale
+  <!--  <div th:replace="~{/main_counters/list}"></div>-->
+  <div>
+
+  </div>
+  <div>
+    Lista platilolor comune
+    <!--  <div th:replace="~{/common_payments/list}"></div>-->
+  </div>
+
+
+
+
+
+
+</div>
+

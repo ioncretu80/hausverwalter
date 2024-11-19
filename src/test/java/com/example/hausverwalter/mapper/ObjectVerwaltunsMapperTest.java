@@ -11,10 +11,10 @@ import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class ObjectVervaltunsMapperTest {
+class ObjectVerwaltunsMapperTest {
 
   @Autowired
-  private ObjectVervaltunsMapper objectVervaltunsMapper;
+  private ObjectVerwaltungsMapper objectVervaltunsMapper;
 
   @Test
   void entityObjectToDtoObject() {

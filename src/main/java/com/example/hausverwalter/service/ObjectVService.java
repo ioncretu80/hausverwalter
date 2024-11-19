@@ -2,7 +2,7 @@ package com.example.hausverwalter.service;
 
 import com.example.hausverwalter.dto.DtoObject;
 import com.example.hausverwalter.entity.EntityObject;
-import com.example.hausverwalter.mapper.ObjectVervaltunsMapper;
+import com.example.hausverwalter.mapper.ObjectVerwaltungsMapper;
 import com.example.hausverwalter.repos.ObjectVRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class ObjectVService {
 
   private final ObjectVRepository objectVRepository;
-  private final ObjectVervaltunsMapper objectVervaltunsMapper;
+  private final ObjectVerwaltungsMapper objectVervaltunsMapper;
 
 
   public List<DtoObject> getAllObjects() {

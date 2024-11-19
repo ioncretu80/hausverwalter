@@ -8,6 +8,7 @@
       <th scope="col">Haus Nr.</th>
       <th scope="col">PLZ</th>
       <th scope="col">Stadt</th>
+      <th scope="col">View Details</th>
       <th scope="col">Edit</th>
       <th scope="col">Delete</th>
 
@@ -22,9 +23,15 @@
       <td th:text="${object.getPostCode}">PLZ</td>
       <td th:text="${object.getCity}">Stadt</td>
       <!-- Butonul de Editare -->
+
+      <td>
+        <a th:href="@{/objects/deteils/{id}(id=${object.id})}" class="btn btn-primary btn-sm">View Details</a>
+      </td>
+
       <td>
         <a th:href="@{/objects/edit/{id}(id=${object.id})}" class="btn btn-primary btn-sm">Edit</a>
       </td>
+
 
       <td>
         <form th:action="@{/objects/delete/{id}(id=${object.getId})}" method="post" style="display:inline;">

@@ -7,7 +7,7 @@ spring:
   application:
     name: hausverwalter
   datasource:
-    url: jdbc:postgresql://localhost:5432/hausverwalter
+    url: jdbc:postgresql://localhost:5433/hausverwalter
     username: root
     password: root
   jpa:

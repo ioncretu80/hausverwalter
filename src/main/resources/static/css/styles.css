@@ -1,3 +1,9 @@
 h4 {
   color: red;
 }
+
+
+table.table.custom-table td, table.table.custom-table th {
+  height: 30px;
+  vertical-align: middle;
+}

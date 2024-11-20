@@ -10,7 +10,7 @@ public interface ApartmentMapper {
 
   ApartmentMapper INSTANCE = Mappers.getMapper(ApartmentMapper.class);
 
-  // Mapări
   DtoApartment toDto(EntityApartment apartment);
-  EntityApartment toEntity(DtoApartment apartmentDto);
+
+  EntityApartment toEntity(DtoApartment dto);
 }

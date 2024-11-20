@@ -113,20 +113,23 @@
           <target>${java.version}</target>
           <annotationProcessorPaths>
             <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+            <path>
               <groupId>org.mapstruct</groupId>
               <artifactId>mapstruct-processor</artifactId>
-              <version>${mapstruct.version}</version> <!-- Sau versiunea pe care o folosești -->
-            <!-- Adaugă și Lombok pentru procesarea anotărilor -->
+              <version>${mapstruct.version}</version>
             </path>
             <path>
               <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>${lombok.version}</version> <!-- Sau versiunea pe care o folosești -->
+              <artifactId>lombok-mapstruct-binding</artifactId>
+              <version>${lombok-mapstruct-binding.version}</version>
             </path>
           </annotationProcessorPaths>
         </configuration>
       </plugin>
     </plugins>
   </build>
-
 </project>

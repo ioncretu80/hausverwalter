@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ObjectVService {
 
   private final ObjectVRepository objectVRepository;
@@ -32,6 +34,7 @@ public class ObjectVService {
   }
 
   public void deleteVObject(Long id) {
+    log.info("deleteVObject with id {}", id);
     objectVRepository.deleteById(id);
   }
 

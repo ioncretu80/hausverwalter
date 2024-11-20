@@ -9,8 +9,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DtoApartment {
   private Long id;
-  private String address;
+  private String designation;
+  private double rentedSpace;
   private int numberOfRooms;
-  private double price;
+  private String shot; //grund floor, upper floor, attic
+  private String floor;
+  private String make;//links-links, links, rechts, rechts-rechts, mitte
 }
 

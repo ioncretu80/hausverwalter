@@ -40,8 +40,15 @@ public class ViewController {
   @GetMapping("/objects")
   public String objects(Model model) {
     model.addAttribute("objectList", objectService.getAllObjects());
+    model.addAttribute("path", "object/list");
+    return "base_template";
+  }
 
-    return "object_list"; // Aceasta va trimite utilizatorul către objects.html
+  @GetMapping("/utilities")
+  public String utilities(Model model) {
+
+    model.addAttribute("path", "utilities/list");
+    return "base_template";
   }
 
   @PostMapping("/objects/delete/{id}")

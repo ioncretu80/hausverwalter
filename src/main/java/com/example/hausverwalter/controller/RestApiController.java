@@ -1,6 +1,8 @@
 package com.example.hausverwalter.controller;
 
+import com.example.hausverwalter.dto.DtoApartment;
 import com.example.hausverwalter.dto.DtoObject;
+import com.example.hausverwalter.service.ApartmentService;
 import com.example.hausverwalter.service.ObjectVService;
 import jakarta.websocket.server.PathParam;
 import java.io.IOException;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,9 +24,26 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @Slf4j
+@RequestMapping("/rest")
 public class RestApiController {
 
   private final ObjectVService objectVService;
+  private final ApartmentService apartmentService;
+
+
+
+
+  @GetMapping("/apartments/{id}")
+  public DtoApartment getApartmentsById(@PathVariable("id") Long id) {
+    return apartmentService.getApartmentById(id);
+  }
+
+
+  @GetMapping("/apartments")
+  public List<DtoApartment> getApartments() {
+      return apartmentService.getAllApartments();
+  }
+
 
   @GetMapping("/products")
   public String getProducts() {

@@ -1,0 +1,88 @@
+databaseChangeLog:
+
+  #  -------------------------------------------------------------------------------
+  #  -- Tabelle APARTMENTS
+  #  -------------------------------------------------------------------------------
+
+  - changeSet:
+      id: "2"
+      comment: Creation of Tabelle APARTMENTS
+      author: icr
+      preConditions:
+        - onFail: HALT
+        - not:
+            - tableExists:
+                tableName: APARTMENTS
+      changes:
+        - createTable:
+            tableName: APARTMENTS
+            comment: Entry for the APARTMENTS
+            columns:
+              - column:
+                  name: id
+                  remarks: "Primary Key"
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: designation
+                  remarks: "Apartment Name"
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: rented_space
+                  remarks: "Rented space in square meters"
+                  type: double
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number_of_rooms
+                  remarks: "Number of rooms"
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: shot
+                  remarks: "Apartment location (ground floor, upper floor, attic)"
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: floor
+                  remarks: "Floor number"
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: make
+                  remarks: "Position in building (links, rechts, mitte)"
+                  type: varchar(50)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: object_id
+                  remarks: "Foreign key referencing ENTITY_OBJECT"
+                  type: bigint
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: APARTMENTS
+            baseColumnNames: object_id
+            referencedTableName: ENTITY_OBJECT
+            referencedColumnNames: id
+            constraintName: FK_APARTMENTS_OBJECT
+
+
+
+
+
+
+
+
+
+
+
+

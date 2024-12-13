@@ -2,6 +2,7 @@ package com.example.hausverwalter.controller;
 
 
 import com.example.hausverwalter.dto.DtoObject;
+import com.example.hausverwalter.service.ApartmentService;
 import com.example.hausverwalter.service.ObjectVService;
 import java.util.ArrayList;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.PostMapping;
   public class ViewController {
 
   private final   ObjectVService objectService;
+  private final ApartmentService apartmentService;
+
   @GetMapping("/view-products")
   public String viewProducts() {
     return "view-products";
@@ -35,9 +38,13 @@ import org.springframework.web.bind.annotation.PostMapping;
     return "locale";
   }
 
+
+
+
   @GetMapping("/objects")
   public String objects(Model model) {
-    model.addAttribute("list", objectService.getAllObjects());
+    model.addAttribute("objectList", objectService.getAllObjects());
+
     return "object_list"; // Aceasta va trimite utilizatorul către objects.html
   }
 

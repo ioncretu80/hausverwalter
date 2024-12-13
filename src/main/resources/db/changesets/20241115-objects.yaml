@@ -1,12 +1,12 @@
 databaseChangeLog:
 
   #  -------------------------------------------------------------------------------
-  #  -- Tabelle Intba Datei
+  #  -- Tabelle OBJECTS
   #  -------------------------------------------------------------------------------
 
   - changeSet:
       id: "1"
-      comment: Creation of Tabelle Intba File
+      comment: Creation of Tabelle OBJECTS
       author: icr
       preConditions:
         - onFail: HALT

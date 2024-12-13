@@ -2,36 +2,32 @@
   <h1>Meine Mitobjekte</h1>
   <div class="d-flex align-items-center justify-content-between">
     <p class="fst-normal">
-      <span th:text="${#lists.size(list)}"></span> Objekte/Einheiten
+      <span th:text="${#lists.size(objectList)}"></span> Objekte/Einheiten
     </p>
     <a th:href="@{/objects/add}" class="btn btn-primary btn-sm ms-auto" target="_blank">Add new object</a>
   </div>
 
-  <div class="accordion accordion-flush" id="mieteObjekt">
-    <div class="accordion-item" th:each="item, iterStat : ${list}">
+  <div class="accordion accordion-flush" id="mieteObjekte">
+    <div class="accordion-item" th:each="item, iterStat : ${objectList}">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed"
                 type="button"
                 data-bs-toggle="collapse"
-                th:attr="data-bs-target='#flush-collapse' + ${iterStat.index}"
-                th:attrappend="aria-controls='flush-collapse' + ${iterStat.index}"
+                th:attr="data-bs-target='#flush-collapse-item-' + ${iterStat.index}"
+                th:attrappend="aria-controls='flush-collapse-item-' + ${iterStat.index}"
                 aria-expanded="false">
           [[${item.getObjectName}]] | [[${item.getStreet}]] [[${item.hausNumber}]] | [[${item.getPostCode}]], [[${item.getCity}]] |
         </button>
       </h2>
-      <div th:attr="id='flush-collapse' + ${iterStat.index}"
+      <div th:attr="id='flush-collapse-item-' + ${iterStat.index}"
            class="accordion-collapse collapse"
            data-bs-parent="#mieteObjekte">
         <div class="accordion-body">
-          <!-- ID-ul este afișat și stocat într-un câmp ascuns -->
           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle position-absolute top-0 end-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ...
             </a>
-
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+            <ul class="dropdown-menu dropdown-menu-end">
               <li>
                 <a class="dropdown-item" href="#" th:attr="onclick='editObject(' + ${item.id} + ')'">Edit</a>
               </li>
@@ -40,7 +36,14 @@
               </li>
             </ul>
           </div>
-          <p>ID: [[${item.getId}]]</p>
+
+          <div class="d-flex align-items-center justify-content-between">
+            <p class="fst-normal">
+              <span th:text="${#lists.size(objectList[0].getApartments)}"></span> Apartament
+            </p>
+
+          </div>
+
         </div>
       </div>
     </div>

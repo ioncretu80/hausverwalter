@@ -1,11 +1,6 @@
 package com.example.hausverwalter;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class HausverwalterApplicationTests {
-
-
-
-}
+class HausverwalterApplicationTests {}

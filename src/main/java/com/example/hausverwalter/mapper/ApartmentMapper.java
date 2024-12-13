@@ -2,7 +2,6 @@ package com.example.hausverwalter.mapper;
 
 import com.example.hausverwalter.dto.DtoApartment;
 import com.example.hausverwalter.entity.EntityApartment;
-import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

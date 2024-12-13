@@ -1,6 +1,5 @@
 package com.example.hausverwalter.controller;
 
-
 import com.example.hausverwalter.dto.DtoObject;
 import com.example.hausverwalter.service.ApartmentService;
 import com.example.hausverwalter.service.ObjectVService;
@@ -15,19 +14,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-  public class ViewController {
+public class ViewController {
 
-  private final   ObjectVService objectService;
+  private final ObjectVService objectService;
   private final ApartmentService apartmentService;
 
   @GetMapping("/view-products")
   public String viewProducts() {
     return "view-products";
   }
+
   @GetMapping("/add-products")
   public String addProducts() {
     return "add-products";
@@ -37,9 +36,6 @@ import org.springframework.web.bind.annotation.PostMapping;
   public String locale() {
     return "locale";
   }
-
-
-
 
   @GetMapping("/objects")
   public String objects(Model model) {
@@ -55,23 +51,23 @@ import org.springframework.web.bind.annotation.PostMapping;
   }
 
   @GetMapping("/objects/edit/{id}")
-  public String getVObjectsByIndex(@PathVariable Long id,Model model) {
+  public String getVObjectsByIndex(@PathVariable Long id, Model model) {
     log.info("getVObjectsbyIndex with path variable {}", id);
     DtoObject dtoObject = objectService.getObjectById(id);
-    model.addAttribute("dtoObject",dtoObject);
-    return  "object/edit";
+    model.addAttribute("dtoObject", dtoObject);
+    return "object/edit";
   }
 
   @GetMapping("/objects/add")
   public String addObject() {
     return "object/add";
   }
+
   @PostMapping(value = "/objects/save", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
   public String saveVObject(@ModelAttribute DtoObject dtoObject) {
     objectService.addVObject(dtoObject);
     return "redirect:/objects";
   }
-
 
   @GetMapping("/objects/deteils/{id}")
   public String getVObjectDeteils(Model model, @PathVariable Long id) {
@@ -82,13 +78,8 @@ import org.springframework.web.bind.annotation.PostMapping;
     return "object_detail";
   }
 
-
   @GetMapping("/orders")
   public String order(Model model) {
     return "order_list";
   }
-
 }
-
-
-

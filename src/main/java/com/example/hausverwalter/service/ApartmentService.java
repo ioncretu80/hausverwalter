@@ -1,12 +1,10 @@
 package com.example.hausverwalter.service;
 
 import com.example.hausverwalter.dto.DtoApartment;
-import com.example.hausverwalter.dto.DtoObject;
 import com.example.hausverwalter.entity.EntityApartment;
 import com.example.hausverwalter.mapper.ApartmentMapper;
 import com.example.hausverwalter.mapper.ObjectVerwaltungsMapper;
 import com.example.hausverwalter.repos.ApartmentRepository;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +25,6 @@ public class ApartmentService {
     List<EntityApartment> result = apartmentRepository.findAll();
 
     return result.stream().map(apartmentMapper::toDto).toList();
-
-
   }
 
   public DtoApartment getApartmentById(Long id) {

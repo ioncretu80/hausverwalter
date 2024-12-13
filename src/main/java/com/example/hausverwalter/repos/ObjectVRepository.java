@@ -11,5 +11,4 @@ public interface ObjectVRepository extends JpaRepository<EntityObject, Long> {
 
   @EntityGraph(attributePaths = {"apartments"})
   List<EntityObject> findAll();
-
 }

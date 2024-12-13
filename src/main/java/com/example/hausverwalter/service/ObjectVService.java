@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Hibernate;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,31 +24,26 @@ public class ObjectVService {
   private final ObjectVerwaltungsMapper objectVervaltunsMapper;
   private final ApartmentMapper apartmentMapper;
 
-
   public List<DtoObject> getAllObjects() {
 
     List<EntityObject> list = objectVRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
-    if(list.isEmpty()){
+    if (list.isEmpty()) {
       return new ArrayList<>();
     }
 
     return list.stream()
-        .map(entityObject ->{
-          DtoObject dtoObject = objectVervaltunsMapper.entityObjectToDtoObject(entityObject);
+        .map(
+            entityObject -> {
+              DtoObject dtoObject = objectVervaltunsMapper.entityObjectToDtoObject(entityObject);
 
-          List<DtoApartment> apartmentDtoList = entityObject.getApartments().stream()
-              .map(apartment -> apartmentMapper.toDto(apartment)).collect(Collectors.toList());
-          dtoObject.setApartments(apartmentDtoList);
-            return dtoObject;
-        })
-
-      .collect(Collectors.toList());
-
-
-
-
-
-
+              List<DtoApartment> apartmentDtoList =
+                  entityObject.getApartments().stream()
+                      .map(apartment -> apartmentMapper.toDto(apartment))
+                      .collect(Collectors.toList());
+              dtoObject.setApartments(apartmentDtoList);
+              return dtoObject;
+            })
+        .collect(Collectors.toList());
   }
 
   public void deleteVObject(Long id) {
@@ -66,14 +60,12 @@ public class ObjectVService {
     EntityObject entityObject = objectVRepository.findById(id).get();
 
     List<EntityApartment> entityApartmentsList = entityObject.getApartments();
-    List<DtoApartment> dtoApartmentsList = entityApartmentsList.stream()
-        .map(apartmentMapper::toDto).collect(Collectors.toList());
-
+    List<DtoApartment> dtoApartmentsList =
+        entityApartmentsList.stream().map(apartmentMapper::toDto).collect(Collectors.toList());
 
     DtoObject objectDto = objectVervaltunsMapper.entityObjectToDtoObject(entityObject);
     objectDto.setApartments(dtoApartmentsList);
 
     return objectDto;
-
   }
 }

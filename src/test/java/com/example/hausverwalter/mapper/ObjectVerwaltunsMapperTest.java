@@ -15,8 +15,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 class ObjectVerwaltungsMapperTest {
 
-  @Autowired
-  private ObjectVerwaltungsMapper objectVervaltunsMapper;
+  @Autowired private ObjectVerwaltungsMapper objectVervaltunsMapper;
 
   @Test
   void entityObjectToDtoObject() {
@@ -37,11 +36,9 @@ class ObjectVerwaltungsMapperTest {
     apartment2.setId(2L);
     apartment2.setObject(entityObject);
 
-
     List<EntityApartment> apatments = List.of(apartment1, apartment2);
 
     entityObject.setApartments(apatments);
-
 
     DtoObject dtoObject = objectVervaltunsMapper.entityObjectToDtoObject(entityObject);
 
@@ -52,7 +49,5 @@ class ObjectVerwaltungsMapperTest {
     assertEquals(entityObject.getPostCode(), dtoObject.getPostCode());
     assertEquals(entityObject.getCity(), dtoObject.getCity());
     assertNull(dtoObject.getApartments());
-
-
   }
 }

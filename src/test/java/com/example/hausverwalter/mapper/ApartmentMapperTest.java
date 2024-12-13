@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-
 @SpringBootTest
 @ActiveProfiles("test")
 class ApartmentMapperTest {
@@ -25,7 +24,6 @@ class ApartmentMapperTest {
     apartment.setNumberOfRooms(3);
     apartment.setMake("TestMake");
 
-
     DtoApartment apartmentDto = ApartmentMapper.INSTANCE.toDto(apartment);
 
     assertNotNull(apartmentDto);
@@ -36,11 +34,10 @@ class ApartmentMapperTest {
     assertEquals(apartment.getFloor(), apartmentDto.getFloor());
     assertEquals(apartment.getNumberOfRooms(), apartmentDto.getNumberOfRooms());
     assertEquals(apartment.getMake(), apartmentDto.getMake());
-
   }
 
   @Test
-  void testDtoToEntity(){
+  void testDtoToEntity() {
     // Pregătim un obiect ApartmentDto
     DtoApartment apartmentDto = new DtoApartment();
     apartmentDto.setId(1L);
@@ -51,9 +48,7 @@ class ApartmentMapperTest {
     apartmentDto.setNumberOfRooms(3);
     apartmentDto.setMake("TestMake");
 
-
     EntityApartment apartment = ApartmentMapper.INSTANCE.toEntity(apartmentDto);
-
 
     assertNotNull(apartment);
     assertEquals(apartmentDto.getId(), apartment.getId());
@@ -63,7 +58,5 @@ class ApartmentMapperTest {
     assertEquals(apartmentDto.getFloor(), apartment.getFloor());
     assertEquals(apartmentDto.getNumberOfRooms(), apartment.getNumberOfRooms());
     assertEquals(apartmentDto.getMake(), apartment.getMake());
-
   }
-
 }
